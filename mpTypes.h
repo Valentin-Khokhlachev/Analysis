@@ -24,9 +24,17 @@
  */
 namespace mpTypes {
 
+using namespace boost::multiprecision;
+
+/*!
+ * \brief prc - разрядность, с которой хотим провести расчет
+ */
 const unsigned int prc = 32u;
 
-using namespace boost::multiprecision;
+/*!
+ * \brief prcToPrint - сколько знаков у чисел буем выводить в консоль/файлы
+ */
+const unsigned int prcToPrint = 16u;
 
 /*!
  * \brief mpFloat_t - тип с плавающей точкой и произвольной разрядностью (32 * 4 = 128)

@@ -4,21 +4,17 @@
 #include <QDebug>
 
 #include "interpolationLagrange.h"
-#include "myTimer.h"
+#include "chronoTimer.h"
 
 int main(int argc, char *argv[])
 {
-    using namespace Timer;
+    using namespace chronoTimer;
     QCoreApplication a(argc, argv);
 
     interpolationLagrange LagrangeInterp;
 
-    time_var t_s = time_now();
-
-    LagrangeInterp.interpolateTest();
-
-    time_var t_f = time_now();
-    qDebug() << "Time taken: " << time_taken(t_s, t_f);
+    auto [result, time] = timedFunction([&LagrangeInterp]()->bool{return LagrangeInterp.interpolateTest();});
+    qDebug() << time;
 
     return 0;
 }

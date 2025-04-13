@@ -2,11 +2,16 @@
 #define INTERPOLATIONLAGRANGE_H
 
 #include <QDebug>
+
 #include <vector>
 #include <cmath>
+#include <string>
+#include <filesystem>
+#include <iostream>
+#include <fstream>
 
 #include "mpTypes.h"
-#include "myTimer.h"
+#include "chronoTimer.h"
 #include "lexicalCast.h"
 
 class interpolationLagrange
@@ -26,7 +31,7 @@ public:
 
 private:
     const mpTypes::mpFloat_t pi = mpTypes::mpFloat_t("4.0") * atan( mpTypes::mpFloat_t("1.0") );
-    const mpTypes::mpComplex_t PI {pi, "0.0"};
+    const mpTypes::mpComplex_t PI {pi.str(mpTypes::prc).c_str(), "0.0"};
 
     std::vector<mpTypes::mpComplex_t> coefficientsAtT{};
     std::vector<mpTypes::mpComplex_t> u_fin{};

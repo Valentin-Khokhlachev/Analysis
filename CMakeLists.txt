@@ -15,15 +15,20 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 
 add_executable(${PROJECT_NAME}
   main.cpp
-  interpolationLagrange.h interpolationLagrange.cpp
+  interpolationLagrange.h
+  interpolationLagrange.cpp
   mpTypes.h
-  myTimer.h
+  chronoTimer.h
   lexicalCast.h
 )
 target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Core)
 
 set(EIGEN_ROOT "C:/msys64/mingw64/include/eigen3/")
 include_directories(${EIGEN_ROOT})
+
+include_directories(${PROJECT_SOURCE_DIR})
+
+add_compile_definitions(SOURCE_DIRECTORY="${PROJECT_SOURCE_DIR}")
 
 include(GNUInstallDirs)
 install(TARGETS ${PROJECT_NAME}
