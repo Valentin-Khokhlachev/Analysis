@@ -4,7 +4,7 @@ import os
 
 name = "interpLagTest"
 
-path_to_graph = "graph/"
+path_to_graph = "../results/graph/"
 flag_save_pic = True
 
 data = pd.read_csv("../results/" + name + ".csv", sep=';')
